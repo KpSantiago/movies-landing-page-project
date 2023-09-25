@@ -1,5 +1,6 @@
 #home {
   background: url("../../../../assets/bgHome.png") center / cover;
+  min-height: 100vh;
   height: auto;
   max-height: 1000px;
   display: flex;
