@@ -1,0 +1,31 @@
+.cardContainer {
+  background-color: #000;
+  width: 340px;
+  height: 460px;
+  border-radius: 10px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  padding-top: 10px;
+  position: relative;
+  z-index: 9;
+  transition: all 0.35s;
+}
+
+.cardContainer:hover {
+  background-color: #c1024d;
+  transform: scale(1.01) translateY(-20px);
+}
+
+h2 {
+  width: 35%;
+  font-size: 32px;
+  border-bottom: 1.75px solid #fff;
+}
+
+p {
+  max-width: 268px;
+  text-align: center;
+}

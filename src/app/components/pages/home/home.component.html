@@ -1,0 +1,59 @@
+<app-header></app-header>
+<section id="home">
+  <h1 class="text">Veja os principais filmes das atualidade!</h1>
+  <img src="../../../../assets/person.png" alt="" />
+</section>
+<section id="depoiments">
+  <div class="depoiment">
+    <img src="../../../../assets/person2.png" alt="" />
+    <h2 class="name">Kauã Santiago</h2>
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur
+      vulputate massa vel justo pharetra vehicula. Pellentesque viverra pharetra
+      luctus. Sed dapibus pharetra risus, ut vulputate risus euismod in. Morbi
+      vel.
+    </p>
+  </div>
+</section>
+<section id="cards">
+  <div class="cards">
+    <app-cards [imgUrl]="imgs[0]"></app-cards>
+    <app-cards [imgUrl]="imgs[1]"></app-cards>
+    <app-cards [imgUrl]="imgs[2]"></app-cards>
+  </div>
+  <div class="my-card">
+    <img src="../../../../assets/myImg.png" alt="" />
+    <h2>Kauã Santiago</h2>
+    <div class="contacts">
+      <div class="github">
+        <img src="../../../../assets/github.svg" alt="" />
+        <a href="https://github.com/KpSantiago" target="_blank"
+          >github.com/KpSantiago</a
+        >
+      </div>
+      <div class="linkedin">
+        <img src="../../../../assets/linkedin.svg" alt="" />
+        <a href="https://www.linkedin.com/in/kpsantiago" target="_blank"
+          >www.linkedin.com/in/kpsantiago</a
+        >
+      </div>
+      <div class="email">
+        <img src="../../../../assets/email.svg" alt="" />
+        <span>santiago.kauajose12@gmail.com</span>
+      </div>
+    </div>
+  </div>
+  <div class="my-card tecnologies">
+    <h2>Used Technologies</h2>
+    <div class="contacts">
+      <div class="github">
+        <img src="../../../../assets/angular.svg" alt="" />
+        <span>Angular 16</span>
+      </div>
+      <div class="linkedin">
+        <img src="../../../../assets/api.svg" alt="" />
+        <span>Films API (Coming soon) </span>
+      </div>
+    </div>
+  </div>
+</section>
