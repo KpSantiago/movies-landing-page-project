@@ -173,6 +173,13 @@
   gap: 10px;
 }
 
+.github img,
+.linkedin img,
+.email img {
+  width: 35px;
+  height: 35px;
+}
+
 .my-card .contacts img {
   width: 50px;
 }
