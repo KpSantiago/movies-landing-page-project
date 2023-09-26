@@ -11,11 +11,36 @@
   position: relative;
 }
 
+#home .text-btn {
+  position: relative;
+  z-index: 9;
+}
+
 #home .text {
   font-size: 76px;
   max-width: 662px;
-  position: relative;
-  z-index: 9;
+}
+
+#home .btn {
+  background-color: #c1024d;
+  color: #fff;
+  width: fit-content;
+  height: 40px;
+  font-size: 18px;
+  border: 1px solid #c1024d99;
+  border-radius: 8px;
+  padding: 0 8px;
+  transition: all 0.5s;
+}
+
+#home .btn {
+  font-weight: 600;
+  text-decoration: none;
+  letter-spacing: 0.75px;
+}
+
+#home .btn:hover {
+  background-color: #91024b;
 }
 
 #home::after {
