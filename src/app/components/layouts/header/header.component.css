@@ -24,4 +24,21 @@ header {
 .menu li a {
   text-decoration: none;
   color: #fff;
+  position: relative;
+}
+
+.menu li a::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  background-color: #c1024d;
+  height: 2px;
+  width: 0;
+  transition: all 0.3s;
+}
+
+.menu li:hover a::after {
+  left: 0;
+  width: 100%;
 }

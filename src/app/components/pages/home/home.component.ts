@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { TmdbService } from 'src/app/services/tmdbService/tmdb.service';
 
 @Component({
   selector: 'app-home',
@@ -12,7 +14,11 @@ export class HomeComponent implements OnInit {
     '../../../../../assets/cine.svg',
   ];
 
-  constructor() {}
+  constructor(private router: Router) {}
 
   ngOnInit(): void {}
+
+  navigate(): void {
+    this.router.navigate(['/films']);
+  }
 }
