@@ -1,0 +1,115 @@
+<app-header></app-header>
+<!-- *ngIf="film; else load" -->
+<section id="film-container">
+  <img src="{{ imgUrl }}{{ film.backdrop_path }}" class="bg" />
+  <div class="content">
+    <img src="{{ imgUrl }}{{ film.poster_path }}" alt="" class="poster" />
+    <div class="infos">
+      <h1 class="title">
+        {{ film.title }}<span>({{ year }})</span>
+      </h1>
+      <div class="genres">
+        <div class="freeToPublic" *ngIf="!film.adult; else adult">L</div>
+        <ng-template #adult>
+          <div class="adult">18+</div>
+        </ng-template>
+        <span *ngFor="let genre of film.genres">
+          <app-genres
+            [genreId]="genre.id"
+            [genreName]="genre.name"
+          ></app-genres>
+        </span>
+      </div>
+      <div class="date-popu">
+        <strong>{{ film.release_date }}</strong>
+        <div class="popularity">
+          <fa-icon [icon]="eye"></fa-icon>{{ film.popularity }}
+        </div>
+      </div>
+      <div class="clas">
+        <!-- {{ film.vote_average }} -->
+        <span class="star1 star" #star>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="17"
+            height="17"
+            fill="#fff"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279-7.416-3.967-7.417 3.967 1.481-8.279-6.064-5.828 8.332-1.151z"
+            />
+          </svg>
+        </span>
+        <span class="star2 star" #star>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="17"
+            height="17"
+            fill="#fff"
+            stroke-width="2"
+            stroke-color="#fff"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279-7.416-3.967-7.417 3.967 1.481-8.279-6.064-5.828 8.332-1.151z"
+            />
+          </svg>
+        </span>
+        <span class="star3 star" #star>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="17"
+            height="17"
+            fill="#fff"
+            stroke-width="2"
+            stroke-color="#fff"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279-7.416-3.967-7.417 3.967 1.481-8.279-6.064-5.828 8.332-1.151z"
+            />
+          </svg>
+        </span>
+        <span class="star4 star" #star>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="17"
+            height="17"
+            fill="#fff"
+            stroke-width="2"
+            stroke-color="#fff"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279-7.416-3.967-7.417 3.967 1.481-8.279-6.064-5.828 8.332-1.151z"
+            />
+          </svg>
+        </span>
+        <span class="star5 star" #star>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="17"
+            height="17"
+            fill="#fff"
+            stroke-width="2"
+            stroke-color="#fff"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279-7.416-3.967-7.417 3.967 1.481-8.279-6.064-5.828 8.332-1.151z"
+            />
+          </svg>
+        </span>
+      </div>
+      <p class="overview">{{ film.overview }}</p>
+    </div>
+  </div>
+</section>
+<!-- <ng-template #load>
+  <div class="l">
+    <div class="loader"></div>
+    <p>Carregando...</p>
+  </div>
+</ng-template> -->

@@ -12,7 +12,7 @@
         randomFilm.popularity
       }}</strong>
     </div>
-    <button class="view">View more</button>
+    <button class="view" (click)="navigate(randomFilm.id)">View more</button>
   </div>
 </section>
 <section id="movies" *ngIf="filmsUpcoming; else loading">
@@ -20,7 +20,11 @@
     <h2>Upcoming</h2>
     <div class="cards">
       <div class="card" *ngFor="let film of filmsUpcoming">
-        <img src="{{ imgUrl }}{{ film.poster_path }}" class="imgCard" />
+        <img
+          src="{{ imgUrl }}{{ film.poster_path }}"
+          class="imgCard"
+          (click)="navigate(film.id)"
+        />
       </div>
     </div>
   </div>
@@ -28,7 +32,11 @@
     <h2>Now Playing</h2>
     <div class="cards">
       <div class="card" *ngFor="let film of filmsNowPlaying">
-        <img src="{{ imgUrl }}{{ film.poster_path }}" class="imgCard" />
+        <img
+          src="{{ imgUrl }}{{ film.poster_path }}"
+          class="imgCard"
+          (click)="navigate(film.id)"
+        />
       </div>
     </div>
   </div>
@@ -36,7 +44,11 @@
     <h2>Top Rated</h2>
     <div class="cards">
       <div class="card" *ngFor="let film of filmsTopRated">
-        <img src="{{ imgUrl }}{{ film.poster_path }}" class="imgCard" />
+        <img
+          src="{{ imgUrl }}{{ film.poster_path }}"
+          class="imgCard"
+          (click)="navigate(film.id)"
+        />
       </div>
     </div>
   </div>
@@ -44,11 +56,20 @@
     <h2>Populars</h2>
     <div class="cards">
       <div class="card" *ngFor="let film of filmsPopulars">
-        <img src="{{ imgUrl }}{{ film.poster_path }}" class="imgCard" />
+        <img
+          src="{{ imgUrl }}{{ film.poster_path }}"
+          class="imgCard"
+          (click)="navigate(film.id)"
+        />
       </div>
     </div>
   </div>
 </section>
 <ng-template #loading>
-  <div class="loading"><span class="loader"></span></div>
+  <div class="loading">
+    <div class="l">
+      <div class="loader"></div>
+      <p>Carregando...</p>
+    </div>
+  </div>
 </ng-template>

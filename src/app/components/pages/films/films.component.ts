@@ -1,4 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  ElementRef,
+  OnInit,
+  ViewChild,
+} from '@angular/core';
+import { Router } from '@angular/router';
+
 import { Films } from 'src/app/interfaces/films';
 import { TmdbService } from 'src/app/services/tmdbService/tmdb.service';
 import { environment } from 'src/environments/environment';
@@ -8,15 +16,17 @@ import { environment } from 'src/environments/environment';
   templateUrl: './films.component.html',
   styleUrls: ['./films.component.css'],
 })
-export class FilmsComponent implements OnInit {
-  imgUrl = environment.imgUrl;
-  randomFilm: any;
-  filmsUpcoming!: any;
-  filmsNowPlaying!: any;
-  filmsTopRated!: any;
-  filmsPopulars!: any;
+export class FilmsComponent implements OnInit, AfterViewInit {
+  @ViewChild('svg') svg!: ElementRef<HTMLElement>;
 
-  constructor(private tmdbService: TmdbService) {}
+  imgUrl = environment.imgUrl;
+  randomFilm!: Films;
+  filmsUpcoming!: Films[];
+  filmsNowPlaying!: Films[];
+  filmsTopRated!: Films[];
+  filmsPopulars!: Films[];
+
+  constructor(private tmdbService: TmdbService, private router: Router) {}
   ngOnInit(): void {
     this.tmdbService.upComingMovies().subscribe((data) => {
       let items: Films[] = data.results;
@@ -25,7 +35,6 @@ export class FilmsComponent implements OnInit {
         return d;
       });
 
-      console.log(items);
       this.filmsUpcoming = items;
     });
 
@@ -47,7 +56,6 @@ export class FilmsComponent implements OnInit {
       });
 
       this.filmsTopRated = items;
-      this.randomFilm = items[0];
     });
 
     this.tmdbService.populars().subscribe((data) => {
@@ -59,5 +67,22 @@ export class FilmsComponent implements OnInit {
 
       this.filmsPopulars = items;
     });
+
+    this.tmdbService.randomFilm().subscribe((data) => {
+      const randomFilm = Math.floor(Math.random() * Math.round(20 - 1 + 1));
+
+      let items: Films[] = data.results;
+
+      items = items.map((d: Films) => {
+        d.release_date = new Date(d.release_date).toLocaleDateString('pt-BR');
+        return d;
+      });
+
+      this.randomFilm = items[randomFilm];
+    });
+  }
+  ngAfterViewInit(): void {}
+  navigate(id: number) {
+    this.router.navigate([`film/${id}`]);
   }
 }

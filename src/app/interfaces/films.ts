@@ -3,5 +3,10 @@ export interface Films {
   release_date: string;
   title: string;
   poster_path: string;
-  backdrop: string;
+  adult: boolean;
+  popularity: number;
+  backdrop_path: string;
+  vote_average: number;
+  overview: string;
+  genres: [{ id: number; name: string }];
 }

@@ -17,7 +17,7 @@ export class TmdbService {
     httpHeaders.append('accepet', 'application/json');
     httpHeaders.append('Authorization', `Bearer ${environment.token}`);
     return this.http.get<any>(
-      `${this.baseApiUrl}/upcoming?api_key=${environment.apiKey}`,
+      `${this.baseApiUrl}/movie/upcoming?api_key=${environment.apiKey}`,
       {
         headers: httpHeaders,
       }
@@ -29,7 +29,7 @@ export class TmdbService {
     httpHeaders.append('accepet', 'application/json');
     httpHeaders.append('Authorization', `Bearer ${environment.token}`);
     return this.http.get<any>(
-      `${this.baseApiUrl}/now_playing?api_key=${environment.apiKey}`,
+      `${this.baseApiUrl}/movie/now_playing?api_key=${environment.apiKey}`,
       {
         headers: httpHeaders,
       }
@@ -41,7 +41,7 @@ export class TmdbService {
     httpHeaders.append('accepet', 'application/json');
     httpHeaders.append('Authorization', `Bearer ${environment.token}`);
     return this.http.get<any>(
-      `${this.baseApiUrl}/top_rated?api_key=${environment.apiKey}`,
+      `${this.baseApiUrl}/movie/top_rated?api_key=${environment.apiKey}`,
       {
         headers: httpHeaders,
       }
@@ -53,7 +53,7 @@ export class TmdbService {
     httpHeaders.append('accepet', 'application/json');
     httpHeaders.append('Authorization', `Bearer ${environment.token}`);
     return this.http.get<any>(
-      `${this.baseApiUrl}/popular?api_key=${environment.apiKey}`,
+      `${this.baseApiUrl}/movie/popular?api_key=${environment.apiKey}`,
       {
         headers: httpHeaders,
       }
@@ -61,13 +61,27 @@ export class TmdbService {
   }
 
   randomFilm() {
-    const api =
-      'https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc';
     const httpHeaders = new HttpHeaders();
     httpHeaders.append('accepet', 'application/json');
     httpHeaders.append('Authorization', `Bearer ${environment.token}`);
-    return this.http.get<any>(`${api}&api_key=${environment.apiKey}`, {
-      headers: httpHeaders,
-    });
+    return this.http.get<any>(
+      `${this.baseApiUrl}/trending/movie/day?api_key=${environment.apiKey}&language=en-US'`,
+      {
+        headers: httpHeaders,
+      }
+    );
+  }
+
+  getOneFilm(id: number): Observable<any> {
+    const httpHeaders = new HttpHeaders();
+    httpHeaders.append('accepet', 'application/json');
+    httpHeaders.append('Authorization', `Bearer ${environment.token}`);
+
+    return this.http.get<any>(
+      `${this.baseApiUrl}/movie/${id}?api_key=${environment.apiKey}&language=en-US'`,
+      {
+        headers: httpHeaders,
+      }
+    );
   }
 }

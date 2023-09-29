@@ -1,0 +1,11 @@
+.genre {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.genre .circle {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
