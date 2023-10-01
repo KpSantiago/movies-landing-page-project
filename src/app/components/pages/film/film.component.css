@@ -286,3 +286,14 @@
     transform: rotate(1turn);
   }
 }
+
+@media (max-height: 626px) {
+  #film-container {
+    margin-bottom: 90px;
+  }
+
+  .poster {
+    width: calc(360px / 1.2);
+    height: calc(480px / 1.2);
+  }
+}

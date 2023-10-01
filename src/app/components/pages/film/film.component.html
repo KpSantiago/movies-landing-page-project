@@ -1,4 +1,5 @@
 <app-header></app-header>
+
 <section id="film-container" *ngIf="notError; else load">
   <img src="{{ imgUrl }}{{ film.backdrop_path }}" class="bg" />
   <div class="content">
