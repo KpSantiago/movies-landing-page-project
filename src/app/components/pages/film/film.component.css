@@ -1,7 +1,9 @@
 #film-container {
   background-color: #050505;
   width: 100%;
-  height: 95vh;
+
+  min-height: 95vh;
+  max-height: 95vh;
   display: flex;
   align-items: flex-start;
   padding: 120px 30px;
@@ -284,16 +286,5 @@
 @keyframes load {
   to {
     transform: rotate(1turn);
-  }
-}
-
-@media (max-height: 626px) {
-  #film-container {
-    margin-bottom: 90px;
-  }
-
-  .poster {
-    width: calc(360px / 1.2);
-    height: calc(480px / 1.2);
   }
 }
