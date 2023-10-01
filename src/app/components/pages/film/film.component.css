@@ -1,9 +1,8 @@
 #film-container {
   background-color: #050505;
   width: 100%;
-
   min-height: 95vh;
-  max-height: 95vh;
+  height: fit-content;
   display: flex;
   align-items: flex-start;
   padding: 120px 30px;
