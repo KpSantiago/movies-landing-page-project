@@ -7,6 +7,11 @@ export interface Films {
   popularity: number;
   backdrop_path: string;
   vote_average: number;
+  vote_count: number;
   overview: string;
+  production_companies: [
+    { id: number; logo_path: string; name: string; origin_country: string }
+  ];
   genres: [{ id: number; name: string }];
+  imdb_id: string;
 }

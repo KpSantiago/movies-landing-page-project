@@ -1,18 +1,24 @@
 header {
-  background-color: #020202;
+  background-color: transparent;
   width: 100%;
   height: 70px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 0 90px;
-  position: relative;
+  position: fixed;
   z-index: 999;
+  top: 0;
+  left: 0;
+  transition: all 0.3s;
+}
+
+header.active {
+  background-color: #020202;
 }
 
 .logo {
-  font-size: 36px;
-  font-weight: 700;
+  margin-top: 7.5px;
 }
 
 .menu {
@@ -25,6 +31,7 @@ header {
   text-decoration: none;
   color: #fff;
   position: relative;
+  font-weight: 600;
 }
 
 .menu li a::after {

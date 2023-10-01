@@ -6,7 +6,7 @@ import {
   QueryList,
   ViewChildren,
 } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { faEye } from '@fortawesome/free-regular-svg-icons';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
 import { Films } from 'src/app/interfaces/films';
@@ -24,44 +24,52 @@ export class FilmComponent implements OnInit, AfterViewInit {
   imgUrl = environment.imgUrl;
   year!: string;
   film: Films = {} as Films;
+  notError = true;
   eye = faEye;
   star = faStar;
 
   constructor(
     private tmdbService: TmdbService,
-    private acRoute: ActivatedRoute
+    private acRoute: ActivatedRoute,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
     const id = Number(this.acRoute.snapshot.paramMap.get('id'));
-    this.tmdbService.getOneFilm(id).subscribe((data) => {
-      let items: Films = data;
+    this.tmdbService.getOneFilm(id).subscribe(
+      (data) => {
+        let items: Films = data;
 
-      items.release_date = items.release_date = new Date(
-        items.release_date!
-      ).toLocaleDateString();
+        items.release_date = items.release_date = new Date(
+          items.release_date!
+        ).toLocaleDateString();
 
-      console.log(data);
-
-      this.film = items;
-      if (items) {
-        this.votes(items);
+        this.film = items;
+        if (items) {
+          this.votes(items);
+        }
+        this.year = items.release_date.split('/')[2];
+        console.log(this.film);
+      },
+      (err) => {
+        this.notError = false;
       }
-      this.year = items.release_date.split('/')[2];
-    });
+    );
   }
 
   ngAfterViewInit(): void {}
 
   votes(film: Films) {
-    const vote_count = Math.round(film!.vote_average) / 2;
+    if (window.document.querySelectorAll('.star') && film) {
+      const vote_count = Math.round(film!.vote_average) / 2;
 
-    for (let vote = 1; vote <= vote_count; vote++) {
-      this.starC.forEach((i: ElementRef) => {
-        if (i.nativeElement.className.split(' ')[0] == `star${vote}`) {
-          i.nativeElement.classList.toggle('active');
-        }
-      });
+      for (let vote = 1; vote <= vote_count; vote++) {
+        window.document.querySelectorAll('.star').forEach((i) => {
+          if (i.className.split(' ')[0] == `star${vote}`) {
+            i.classList.toggle('active');
+          }
+        });
+      }
     }
   }
 }

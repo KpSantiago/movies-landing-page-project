@@ -1,21 +1,91 @@
 <app-header></app-header>
-<section id="movie" *ngIf="filmsUpcoming; else loading">
+<section id="movie" *ngIf="notError">
   <img src="{{ imgUrl }}{{ randomFilm.backdrop_path }}" />
   <div class="content">
     <p class="company">
       <strong>{{ randomFilm.release_date }}</strong>
     </p>
     <h1 class="movie-title">{{ randomFilm.title }}</h1>
-    <div class="popularity">
-      <strong>Popularity</strong>
-      <strong class="load" [ngStyle]="{ 'margin-left': '15px' }">{{
-        randomFilm.popularity
-      }}</strong>
+    <div class="clas">
+      <span class="star1 star" #star>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="17"
+          height="17"
+          fill="#fff"
+          stroke-width="2"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279-7.416-3.967-7.417 3.967 1.481-8.279-6.064-5.828 8.332-1.151z"
+          />
+        </svg>
+      </span>
+      <span class="star2 star" #star>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="17"
+          height="17"
+          fill="#fff"
+          stroke-width="2"
+          stroke-color="#fff"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279-7.416-3.967-7.417 3.967 1.481-8.279-6.064-5.828 8.332-1.151z"
+          />
+        </svg>
+      </span>
+      <span class="star3 star" #star>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="17"
+          height="17"
+          fill="#fff"
+          stroke-width="2"
+          stroke-color="#fff"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279-7.416-3.967-7.417 3.967 1.481-8.279-6.064-5.828 8.332-1.151z"
+          />
+        </svg>
+      </span>
+      <span class="star4 star" #star>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="17"
+          height="17"
+          fill="#fff"
+          stroke-width="2"
+          stroke-color="#fff"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279-7.416-3.967-7.417 3.967 1.481-8.279-6.064-5.828 8.332-1.151z"
+          />
+        </svg>
+      </span>
+      <span class="star5 star" #star>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="17"
+          height="17"
+          fill="#fff"
+          stroke-width="2"
+          stroke-color="#fff"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279-7.416-3.967-7.417 3.967 1.481-8.279-6.064-5.828 8.332-1.151z"
+          />
+        </svg>
+      </span>
     </div>
     <button class="view" (click)="navigate(randomFilm.id)">View more</button>
   </div>
 </section>
-<section id="movies" *ngIf="filmsUpcoming; else loading">
+<section id="movies" *ngIf="notError; else loading">
   <div class="cards-container upcoming">
     <h2>Upcoming</h2>
     <div class="cards">

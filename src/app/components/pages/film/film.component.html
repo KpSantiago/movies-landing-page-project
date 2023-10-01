@@ -1,12 +1,11 @@
 <app-header></app-header>
-<!-- *ngIf="film; else load" -->
-<section id="film-container">
+<section id="film-container" *ngIf="notError; else load">
   <img src="{{ imgUrl }}{{ film.backdrop_path }}" class="bg" />
   <div class="content">
     <img src="{{ imgUrl }}{{ film.poster_path }}" alt="" class="poster" />
     <div class="infos">
       <h1 class="title">
-        {{ film.title }}<span>({{ year }})</span>
+        {{ film.title }}<span>{{ "(" + year + ")" }}</span>
       </h1>
       <div class="genres">
         <div class="freeToPublic" *ngIf="!film.adult; else adult">L</div>
@@ -27,7 +26,6 @@
         </div>
       </div>
       <div class="clas">
-        <!-- {{ film.vote_average }} -->
         <span class="star1 star" #star>
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -102,14 +100,46 @@
             />
           </svg>
         </span>
+        <span class="vote_count">{{ "(" + film.vote_count + ")" }}</span>
       </div>
       <p class="overview">{{ film.overview }}</p>
+      <a
+        class="imdbBtn"
+        href="https://www.imdb.com/title/{{ film.imdb_id }}"
+        target="_blank"
+        >IMDb</a
+      >
     </div>
   </div>
 </section>
-<!-- <ng-template #load>
-  <div class="l">
-    <div class="loader"></div>
-    <p>Carregando...</p>
+<section id="companies">
+  <h2>Companies</h2>
+  <div class="companies">
+    <div class="company" *ngFor="let company of film.production_companies">
+      <img
+        src="{{ imgUrl }}{{ company.logo_path }}"
+        alt=""
+        class="logo"
+        *ngIf="company.logo_path; else logo"
+      />
+      <ng-template #logo>
+        <div class="companyNull">
+          <div class="logo logoNull"></div>
+          <p class="name">{{ company.name }}</p>
+          <p class="country">
+            <strong>{{ company.origin_country }}</strong>
+          </p>
+        </div>
+      </ng-template>
+    </div>
   </div>
-</ng-template> -->
+</section>
+
+<ng-template #load>
+  <div class="loading">
+    <div class="l">
+      <div class="loader"></div>
+      <p>Carregando...</p>
+    </div>
+  </div>
+</ng-template>

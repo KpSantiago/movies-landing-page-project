@@ -1,10 +1,10 @@
 #film-container {
   background-color: #050505;
   width: 100%;
-  height: 100vh;
+  height: 95vh;
   display: flex;
   align-items: flex-start;
-  padding: 60px 30px;
+  padding: 120px 30px;
   position: relative;
 }
 
@@ -14,7 +14,7 @@
   z-index: 2;
   top: 0;
   left: 0;
-  background-color: #000000dd;
+  background-color: #050505dd;
   width: 100%;
   height: 100%;
 }
@@ -27,8 +27,8 @@
   left: 0;
   background: linear-gradient(
     0deg,
-    #000000,
-    #000000,
+    #050505ff,
+    #000505e9,
     transparent,
     transparent,
     transparent
@@ -121,7 +121,7 @@
 }
 
 .date-popu strong {
-  opacity: 0.6;
+  opacity: 0.5;
 }
 
 .clas {
@@ -132,12 +132,136 @@
   fill: #ff0;
 }
 
+.vote_count {
+  margin-left: 5px;
+}
+
 .overview {
   max-width: 60%;
   text-align: justify;
+  margin-bottom: 30px;
 }
 
-/* .l {
+.imdbBtn {
+  background-color: #e2b616;
+  width: fit-content;
+  height: auto;
+  font-size: 22px;
+  letter-spacing: 4%;
+  border: none;
+  border-radius: 8px;
+  transition: all 0.35s;
+}
+
+.imdbBtn {
+  text-decoration: none;
+  color: #000;
+  font-weight: 700;
+  padding: 5px 20px;
+}
+
+.imdbBtn:hover {
+  background-color: #e2b616df;
+}
+
+#companies {
+  padding-left: 60px;
+}
+
+#companies h2 {
+  font-size: 42px;
+  margin-bottom: 30px;
+  width: fit-content;
+  height: fit-content;
+  background: linear-gradient(125deg, #fff, #fff, #fff, transparent);
+  background-clip: text;
+  color: transparent;
+  font-weight: 700;
+}
+
+.companies {
+  display: flex;
+  gap: 60px;
+  overflow: auto;
+  padding-bottom: 20px;
+}
+
+.companies::-webkit-scrollbar {
+  height: 5px;
+}
+
+.company {
+  background-color: #dfdfdf;
+  min-width: 200px;
+  min-width: fit-content;
+  max-height: 300px;
+  border-radius: 10px;
+  display: grid;
+  place-items: center;
+  gap: 10px;
+  padding: 20px;
+}
+
+.company:last-child {
+  margin-right: 60px;
+}
+
+.companyNull {
+  min-width: 250px;
+  padding: 20px;
+  display: grid;
+  place-items: center;
+  border-radius: 10px;
+}
+
+.company .logo:not(.logoNull) {
+  max-height: 120px;
+  border-radius: 5px;
+  object-fit: cover;
+}
+
+.logoNull {
+  background-color: #a9a9a949;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  position: relative;
+}
+
+.logoNull:after {
+  content: "";
+  position: absolute;
+  top: 20px;
+  left: 45px;
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  border: 2px solid #000000df;
+}
+
+.logoNull:before {
+  content: "";
+  position: absolute;
+  top: 60px;
+  left: 15px;
+  height: 40px;
+  width: 90px;
+  border-radius: 50%;
+  border: 2px solid #000000df;
+}
+
+.company .country strong {
+  opacity: 0.2;
+}
+
+.loading {
+  width: 100vw;
+  height: 100vh;
+  display: grid;
+  place-items: center;
+}
+
+.l {
   width: fit-content;
   display: flex;
   flex-direction: column;
@@ -149,7 +273,7 @@
   height: 50px;
   border-radius: 50%;
   border: 4px solid #020202;
-  border-bottom: 4px solid #c1024d;
+  border-bottom: 4px solid #fff;
   animation: load 1s infinite linear;
 }
 
@@ -157,4 +281,4 @@
   to {
     transform: rotate(1turn);
   }
-} */
+}
