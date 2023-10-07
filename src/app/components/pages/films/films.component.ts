@@ -114,7 +114,6 @@ export class FilmsComponent implements OnInit, AfterViewInit {
         this.randomFilm = items[randomFilm];
         this.votes(this.randomFilm);
         this.moviebg(`${this.imgUrl}${this.randomFilm.backdrop_path}`);
-        console.log(this.randomFilm);
       },
       (error) => {
         this.notError = false;

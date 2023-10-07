@@ -54,7 +54,7 @@
   max-width: 100%;
   display: flex;
   gap: 30px;
-  position: absolute;
+  position: relative;
   z-index: 3;
   cursor: pointer;
 }
@@ -290,8 +290,71 @@
   }
 }
 
+@media (max-width: 890px) {
+  .content {
+    flex-direction: column;
+    align-items: center;
+  }
+  .overview {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 477px) {
+  #companies {
+    padding-left: 0px;
+  }
+
+  #companies h2 {
+    margin-left: 15px;
+  }
+
+  #companies .companies .company:first-child {
+    margin-left: 15px;
+  }
+}
+
 @media (max-height: 627px) {
   #film-container {
     margin-bottom: 20%;
+  }
+}
+
+@media (max-width: 422px) {
+  .content {
+    transform: scale(0.9);
+  }
+
+  .content .infos {
+    display: grid;
+    gap: 20px;
+  }
+
+  .content .title {
+    font-size: 40px;
+  }
+
+  #companies .companies .company {
+    transform: scale(0.85);
+  }
+}
+
+@media (max-width: 344px) {
+  .content {
+    gap: 0;
+  }
+  .content .poster {
+    width: 100%;
+    height: auto;
+  }
+
+  .content .infos {
+    transform: scale(0.8);
+  }
+
+  .content .imdbBtn {
+    width: 90%;
+    display: flex;
+    justify-content: center;
   }
 }

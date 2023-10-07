@@ -1,10 +1,7 @@
 <app-header></app-header>
-<!-- {{imgUrl}}{{randomFilm.backdrop_path}} -->
-<!-- https://image.tmdb.org/t/p/w500/bylJq7JEA87YqHMObZUnaP292T2.jpg -->
 <section id="movie" *ngIf="notError" #movie>
-  <!-- <img src="{{ imgUrl }}{{ randomFilm.backdrop_path }}" /> -->
   <div class="content">
-    <p class="company">
+    <p class="date">
       <strong>{{ randomFilm.release_date }}</strong>
     </p>
     <h1 class="movie-title">{{ randomFilm.title }}</h1>
