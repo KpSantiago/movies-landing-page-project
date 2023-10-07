@@ -4,6 +4,7 @@ import {
   ElementRef,
   OnInit,
   QueryList,
+  ViewChild,
   ViewChildren,
 } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -20,6 +21,7 @@ import { environment } from 'src/environments/environment';
 })
 export class FilmComponent implements OnInit, AfterViewInit {
   @ViewChildren('star') starC!: QueryList<ElementRef>;
+  @ViewChild('movie') movie!: ElementRef<HTMLElement>;
 
   imgUrl = environment.imgUrl;
   year!: string;
@@ -50,6 +52,7 @@ export class FilmComponent implements OnInit, AfterViewInit {
         }
         this.year = items.release_date.split('/')[2];
         console.log(this.film);
+        this.moviebg(`${this.imgUrl}${this.film.backdrop_path}`);
       },
       (err) => {
         this.notError = false;
@@ -58,6 +61,10 @@ export class FilmComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit(): void {}
+
+  moviebg(url: string): void {
+    this.movie.nativeElement.style.backgroundImage = `url(${url})`;
+  }
 
   votes(film: Films) {
     if (window.document.querySelectorAll('.star') && film) {

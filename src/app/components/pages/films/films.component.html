@@ -1,6 +1,8 @@
 <app-header></app-header>
-<section id="movie" *ngIf="notError">
-  <img src="{{ imgUrl }}{{ randomFilm.backdrop_path }}" />
+<!-- {{imgUrl}}{{randomFilm.backdrop_path}} -->
+<!-- https://image.tmdb.org/t/p/w500/bylJq7JEA87YqHMObZUnaP292T2.jpg -->
+<section id="movie" *ngIf="notError" #movie>
+  <!-- <img src="{{ imgUrl }}{{ randomFilm.backdrop_path }}" /> -->
   <div class="content">
     <p class="company">
       <strong>{{ randomFilm.release_date }}</strong>

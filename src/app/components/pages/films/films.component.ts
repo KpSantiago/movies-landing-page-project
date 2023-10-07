@@ -20,9 +20,11 @@ import { environment } from 'src/environments/environment';
 })
 export class FilmsComponent implements OnInit, AfterViewInit {
   @ViewChildren('star') starC!: QueryList<ElementRef>;
+  @ViewChild('movie') movie!: ElementRef<HTMLElement>;
 
   imgUrl = environment.imgUrl;
   randomFilm: Films = {} as Films;
+  randomFilmBg!: string;
   notError: boolean = true;
   filmsUpcoming!: Films[];
   filmsNowPlaying!: Films[];
@@ -111,6 +113,8 @@ export class FilmsComponent implements OnInit, AfterViewInit {
         });
         this.randomFilm = items[randomFilm];
         this.votes(this.randomFilm);
+        this.moviebg(`${this.imgUrl}${this.randomFilm.backdrop_path}`);
+        console.log(this.randomFilm);
       },
       (error) => {
         this.notError = false;
@@ -118,6 +122,10 @@ export class FilmsComponent implements OnInit, AfterViewInit {
     );
   }
   ngAfterViewInit(): void {}
+
+  moviebg(url: string) {
+    this.movie.nativeElement.style.backgroundImage = `url(${url})`;
+  }
 
   votes(film: Films) {
     if (this.starC) {
