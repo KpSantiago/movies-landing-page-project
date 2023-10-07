@@ -334,6 +334,11 @@
     font-size: 40px;
   }
 
+  .content .date-popu {
+    width: 100%;
+    gap: 20px;
+  }
+
   #companies .companies .company {
     transform: scale(0.85);
   }
