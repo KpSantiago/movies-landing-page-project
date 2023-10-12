@@ -13,6 +13,10 @@ header {
   transition: all 0.3s;
 }
 
+#mh {
+  display: none;
+}
+
 header.active {
   background-color: #020202;
 }
@@ -48,4 +52,80 @@ header.active {
 .menu li:hover a::after {
   left: 0;
   width: 100%;
+}
+
+@media (max-width: 605px) {
+  header {
+    justify-content: center;
+  }
+
+  .menuH {
+    width: 35px;
+    height: 35px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: fixed;
+    z-index: 9999;
+    top: 20px;
+    left: 20px;
+  }
+
+  .menuH p {
+    background-color: #f5f5f5;
+    height: 4px;
+    border-radius: 5px;
+  }
+
+  .menuH p:first-child {
+    width: 75%;
+    box-shadow: 0 18px 0 0 #f5f5f5;
+  }
+
+  .menuH p:last-child {
+    width: 100%;
+    margin-top: 5px;
+  }
+
+  .menu {
+    background-color: #020202;
+    width: 0;
+    height: 100vh;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    overflow: hidden;
+    white-space: nowrap;
+    transition: all 0.4s;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding-top: 120px;
+    font-size: 35px;
+  }
+
+  #mh:checked ~ header .menu {
+    background-color: #020202;
+    width: 75%;
+    height: 100vh;
+    box-shadow: 4px 0 20px 0 rgba(0, 0, 0, 0.34);
+  }
+
+  #mh:checked ~ .menuH p {
+    box-shadow: none;
+  }
+
+  .menuH p:first-child,
+  .menuH p:last-child {
+    transition: all 0.3s;
+  }
+
+  #mh:checked ~ .menuH p:first-child {
+    width: 100%;
+    transform: translateY(5px) rotate(45deg);
+  }
+
+  #mh:checked ~ .menuH p:last-child {
+    transform: translateY(-5px) rotate(-45deg);
+  }
 }

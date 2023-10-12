@@ -7,7 +7,7 @@ import {
   ViewChild,
   ViewChildren,
 } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { faEye } from '@fortawesome/free-regular-svg-icons';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
 import { Films } from 'src/app/interfaces/films';
@@ -32,8 +32,7 @@ export class FilmComponent implements OnInit, AfterViewInit {
 
   constructor(
     private tmdbService: TmdbService,
-    private acRoute: ActivatedRoute,
-    private router: Router
+    private acRoute: ActivatedRoute
   ) {}
 
   ngOnInit(): void {
@@ -51,7 +50,6 @@ export class FilmComponent implements OnInit, AfterViewInit {
           this.votes(items);
         }
         this.year = items.release_date.split('/')[2];
-        console.log(this.film);
         this.moviebg(`${this.imgUrl}${this.film.backdrop_path}`);
       },
       (err) => {

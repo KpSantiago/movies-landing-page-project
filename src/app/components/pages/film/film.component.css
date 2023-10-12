@@ -320,7 +320,7 @@
   }
 }
 
-@media (max-width: 422px) {
+@media (max-width: 425px) {
   .content {
     transform: scale(0.9);
   }
@@ -335,7 +335,8 @@
   }
 
   .content .date-popu {
-    width: 100vw;
+    min-width: 100vw;
+    max-width: 100vw;
     gap: 20px;
   }
 
